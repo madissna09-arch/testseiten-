@@ -1,0 +1,3 @@
+# Muster-Auftritte, kein offizieller Auftritt der Betriebe.
+User-agent: *
+Disallow: /

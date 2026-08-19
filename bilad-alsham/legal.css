@@ -1,0 +1,26 @@
+/* Nur für Impressum und Datenschutz. */
+.legal{
+  width:min(760px, 90vw);margin:0 auto;padding:9rem 0 6rem;
+}
+.legal h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:2.6rem}
+.legal h2{
+  font-size:1.22rem;margin:2.8rem 0 .8rem;color:var(--gold);
+  font-family:var(--sans);font-weight:600;letter-spacing:0;
+}
+.legal p{color:var(--cream-dim);margin-bottom:1rem}
+.legal a{color:var(--gold);border-bottom:1px solid var(--line)}
+.legal strong{color:var(--cream)}
+
+.todo{
+  border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 10px 10px 0;padding:1.2rem 1.4rem;margin-bottom:2.4rem;
+  font-size:.94rem;color:var(--cream-dim);background:rgba(216,178,95,.06);
+}
+.todo strong{display:block;margin-bottom:.35rem;color:var(--gold)}
+
+.ph{
+  background:rgba(216,178,95,.14);border:1px dashed var(--gold-dim);
+  border-radius:4px;padding:.05em .4em;color:var(--cream);
+}
+
+.back{margin-top:3.5rem}

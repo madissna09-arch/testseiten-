@@ -1,0 +1,32 @@
+{
+  "name": "Bilad Alsham — Arabische Spezialitäten",
+  "short_name": "Bilad Alsham",
+  "description": "Arabische Konditorei an der Iburger Straße 17 in Osnabrück. Sortiment ansehen, Bestellzettel zusammenstellen, anrufen.",
+  "lang": "de",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#120d08",
+  "theme_color": "#120d08",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Anrufen",
+      "short_name": "Anrufen",
+      "url": "./?tel=1",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Bestellzettel",
+      "short_name": "Bestellen",
+      "url": "./#bestellen",
+      "icons": [{ "src": "assets/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
