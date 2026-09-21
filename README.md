@@ -8,6 +8,7 @@ Muster-Auftritte für Betriebe, zum Anschauen und Herzeigen.
 |---|---|---|
 | [bilad-alsham](bilad-alsham/) | Bilad Alsham, arabische Konditorei | Osnabrück |
 | [2-bros-bistro](2-bros-bistro/) | 2 Bros Bistro, Speisekarte | Osnabrück |
+| [steak-doener](steak-doener/) | Steak Döner, Döner & Pizza | Osnabrück |
 
 ## Hinweise
 

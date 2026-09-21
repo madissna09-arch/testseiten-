@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Steak Döner Osnabrück – Bremer Straße 56</title>
+<!-- Muster, kein Auftritt des Betriebs: soll nicht in der Suche landen. -->
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Steak Döner an der Bremer Straße 56 in Osnabrück: Döner mit echtem Steakfleisch, Brot frisch aus dem eigenen Ofen, Pizza Ø 32 cm, alles halal.">
+<meta name="theme-color" content="#16181c">
+<meta property="og:title" content="Steak Döner Osnabrück">
+<meta property="og:description" content="Echtes Steakfleisch. Brot aus dem eigenen Ofen. Bremer Straße 56.">
+<meta property="og:image" content="img/laden.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 80'><path fill='%23e2322a' fill-rule='evenodd' d='M30 0C33 13 43 18 41 31C47 28 49 21 49 21C57 39 60 59 60 80H44L39 63H21L16 80H0C0 58 6 44 14 34C14 42 18 46 20 46C18 30 26 14 30 0ZM25 51H35L30 35Z'/></svg>">
+<link rel="preload" href="fonts/archivo-wdth.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Schrift lokal eingebunden - keine Anfragen an Dritte */
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-wdth-ext.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Archivo';font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(fonts/archivo-wdth.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+
+:root{
+  --kohle:#16181c;      /* Ladenschild */
+  --kohle-2:#1e2126;
+  --kohle-3:#272b31;
+  --linie:rgba(255,255,255,.09);
+  --text:#f3f0ea;
+  --dim:rgba(243,240,234,.64);
+  --rot:#e2322a;        /* Flamme im Logo */
+  --glut:#ff7a2e;
+  --teig:#f2e4c9;       /* Brot */
+  --teig-2:#e7d3ad;
+  --braun:#2a1d12;
+  --r:18px;
+  --max:1180px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--kohle);color:var(--text);font-family:'Archivo',system-ui,sans-serif;font-stretch:100%;line-height:1.55;font-size:17px;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(var(--max),100% - 32px);margin-inline:auto}
+.display{font-stretch:125%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.95}
+.kicker{font-stretch:112%;font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--glut)}
+:focus-visible{outline:2px solid var(--glut);outline-offset:3px;border-radius:6px}
+
+/* ---------- Musterhinweis ---------- */
+.muster{background:#000;color:rgba(255,255,255,.7);font-size:.78rem;text-align:center;padding:.45rem 16px;letter-spacing:.02em}
+
+/* ---------- Logo ---------- */
+.logo{display:inline-flex;align-items:center;gap:.08em;font-stretch:125%;font-weight:800;text-transform:uppercase;text-decoration:none;letter-spacing:.01em;line-height:1;white-space:nowrap}
+.logo svg{height:.95em;width:auto;margin:0 .02em;transform:translateY(-.04em)}
+.logo .d{margin-left:.32em}
+
+/* ---------- Kopf ---------- */
+header.top{position:sticky;top:0;z-index:50;background:rgba(22,24,28,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--linie)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:62px}
+.top .logo{font-size:1.2rem}
+.top nav{display:flex;gap:1.6rem;font-size:.92rem}
+.top nav a{text-decoration:none;color:var(--dim);transition:color .2s}
+.top nav a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.8rem 1.25rem;border-radius:999px;font-weight:700;text-decoration:none;font-size:.95rem;border:1px solid transparent;transition:transform .2s,background .2s,border-color .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px)}
+.btn-rot{background:var(--rot);color:#fff}
+.btn-rot:hover{background:#f03d34}
+.btn-hell{background:var(--teig);color:var(--braun)}
+.btn-rand{border-color:rgba(255,255,255,.28);color:var(--text)}
+.btn-rand:hover{border-color:var(--text)}
+.btn svg{width:18px;height:18px}
+.top .btn{padding:.55rem 1rem;font-size:.88rem}
+@media (max-width:820px){.top nav{display:none}}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,6rem);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.hero h1{font-size:clamp(2.7rem,7.2vw,5.6rem);margin:.9rem 0 1.2rem}
+.hero h1 em{font-style:normal;color:var(--rot)}
+.hero .lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--dim);max-width:34rem;margin:0 0 1.8rem}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:.7rem}
+.status{display:inline-flex;align-items:center;gap:.55rem;font-size:.86rem;color:var(--dim);background:var(--kohle-2);border:1px solid var(--linie);padding:.4rem .8rem .4rem .6rem;border-radius:999px}
+.status i{width:9px;height:9px;border-radius:50%;background:#7a7f87}
+.status.offen i{background:#3ecf6e;box-shadow:0 0 0 4px rgba(62,207,110,.18)}
+.facts{display:flex;flex-wrap:wrap;gap:1.6rem 2.2rem;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid var(--linie)}
+.facts div{display:flex;flex-direction:column}
+.facts b{font-stretch:125%;font-size:1.5rem;font-weight:800;line-height:1.1}
+.facts span{font-size:.82rem;color:var(--dim)}
+.stars{color:#ffc53d;letter-spacing:.05em}
+.hero-media{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:720/860;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.hero-media video{width:100%;height:100%;object-fit:cover}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(0,0,0,.55))}
+.hero-media .tag{position:absolute;left:18px;bottom:16px;z-index:2;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+.hero-media .tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--rot);animation:puls 1.6s infinite}
+@keyframes puls{50%{opacity:.25}}
+.glow{position:absolute;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(226,50,42,.22),transparent 65%);right:-160px;top:-120px;pointer-events:none}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-media{order:-1;aspect-ratio:4/3.4;border-radius:22px}
+}
+
+/* ---------- Band ---------- */
+.band{background:var(--rot);color:#fff;overflow:hidden;white-space:nowrap;padding:.85rem 0;transform:rotate(-1.2deg);margin:0 -10px;position:relative;z-index:2}
+.band .track{display:inline-flex;gap:2.2rem;animation:lauf 32s linear infinite;font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:1.05rem}
+.band .track span::after{content:"";display:inline-block;width:7px;height:7px;background:#fff;border-radius:50%;margin-left:2.2rem;vertical-align:middle;opacity:.7}
+@keyframes lauf{to{transform:translateX(-50%)}}
+
+/* ---------- Abschnitte ---------- */
+section{padding:clamp(4rem,9vw,7.5rem) 0}
+.kopf{max-width:44rem;margin-bottom:clamp(2rem,5vw,3.5rem)}
+.kopf h2{font-size:clamp(2.1rem,5vw,3.6rem);margin:.7rem 0 1rem}
+.kopf p{color:var(--dim);margin:0;font-size:1.05rem}
+
+/* Drei Punkte */
+.punkte{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.punkt{background:var(--kohle-2);border:1px solid var(--linie);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.punkt img{aspect-ratio:4/3.3;object-fit:cover;width:100%}
+.punkt div{padding:1.3rem 1.4rem 1.6rem}
+.punkt h3{font-stretch:118%;font-weight:800;font-size:1.3rem;margin:0 0 .4rem;text-transform:uppercase;line-height:1.1}
+.punkt p{margin:0;color:var(--dim);font-size:.96rem}
+.nr{font-stretch:125%;font-weight:900;color:var(--rot);font-size:.9rem;display:block;margin-bottom:.5rem}
+@media (max-width:860px){.punkte{grid-template-columns:1fr}.punkt{display:grid;grid-template-columns:40% 1fr}.punkt img{height:100%;aspect-ratio:auto}}
+@media (max-width:520px){.punkt{grid-template-columns:1fr}.punkt img{aspect-ratio:16/10}}
+
+/* Brot */
+.brot{background:var(--teig);color:var(--braun);position:relative;overflow:hidden}
+.brot .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.brot .kicker{color:var(--rot)}
+.brot h2{font-size:clamp(2.3rem,5.5vw,4.2rem);margin:.7rem 0 1.2rem}
+.brot p{font-size:1.08rem;margin:0 0 1rem;color:rgba(42,29,18,.78)}
+.brot .bilder{position:relative;min-height:520px}
+.brot .bilder img{position:absolute;border-radius:22px;object-fit:cover;box-shadow:0 24px 60px rgba(42,29,18,.3)}
+.brot .b1{width:78%;height:78%;right:0;top:0}
+.brot .b2{width:52%;height:50%;left:0;bottom:0;border:6px solid var(--teig)}
+.zitat{margin:1.8rem 0 0;padding:1.2rem 1.4rem;border-left:4px solid var(--rot);background:rgba(255,255,255,.45);border-radius:0 14px 14px 0}
+.zitat p{font-size:1.15rem;font-weight:600;color:var(--braun);margin:0 0 .35rem}
+.zitat cite{font-style:normal;font-size:.85rem;color:rgba(42,29,18,.65)}
+.zitat cite a{color:var(--rot);font-weight:700}
+@media (max-width:860px){.brot .wrap{grid-template-columns:1fr}.brot .bilder{min-height:0;aspect-ratio:1/1}}
+
+/* Speisekarte */
+.karte-kopf{display:flex;justify-content:space-between;align-items:flex-end;gap:1.5rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.karte-kopf .kopf{margin:0}
+.fleisch{display:inline-flex;background:var(--kohle-2);border:1px solid var(--linie);border-radius:999px;padding:4px}
+.fleisch button{font:inherit;font-weight:700;font-size:.9rem;border:0;background:transparent;color:var(--dim);padding:.55rem 1.1rem;border-radius:999px;cursor:pointer}
+.fleisch button[aria-pressed="true"]{background:var(--rot);color:#fff}
+.tabs{display:flex;gap:.5rem;overflow-x:auto;padding-bottom:.4rem;margin-bottom:1.6rem;scrollbar-width:none;position:sticky;top:62px;z-index:10;background:var(--kohle);padding-top:.6rem}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{font:inherit;font-size:.9rem;font-weight:600;flex:0 0 auto;border:1px solid var(--linie);background:transparent;color:var(--dim);padding:.55rem 1rem;border-radius:999px;cursor:pointer;transition:all .2s}
+.tabs button[aria-selected="true"]{background:var(--text);color:var(--kohle);border-color:var(--text)}
+.gruppe{display:none}
+.gruppe.aktiv{display:block;animation:ein .35s ease}
+@keyframes ein{from{opacity:0;transform:translateY(6px)}}
+.gruppe .hinweis{color:var(--dim);font-size:.9rem;margin:0 0 1rem}
+.liste{display:grid;grid-template-columns:1fr 1fr;gap:0 2.5rem}
+.gericht{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1.05rem 0;border-bottom:1px solid var(--linie)}
+.gericht h4{margin:0;font-size:1.02rem;font-weight:700}
+.gericht h4 small{color:var(--dim);font-weight:500;margin-right:.35rem;font-size:.82rem}
+.gericht p{grid-column:1;margin:0;color:var(--dim);font-size:.88rem;line-height:1.45}
+.preis{font-stretch:112%;font-weight:800;font-size:1.05rem;white-space:nowrap;align-self:start}
+.preis s{font-weight:500;color:var(--dim);text-decoration:none;font-size:.78rem;display:block;text-align:right}
+.karte-fuss{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-top:2rem;padding:1.3rem 1.5rem;background:var(--kohle-2);border:1px solid var(--linie);border-radius:var(--r)}
+.karte-fuss p{margin:0;color:var(--dim);font-size:.9rem;max-width:40rem}
+@media (max-width:760px){.liste{grid-template-columns:1fr}}
+
+/* Pizza */
+.pizza .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.pizza-bild{position:relative;aspect-ratio:1;border-radius:50%;overflow:hidden;box-shadow:0 0 0 14px var(--kohle-2),0 0 0 15px var(--linie)}
+.pizza-bild img{width:100%;height:100%;object-fit:cover}
+.pizza h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:.7rem 0 1rem}
+.pizza p{color:var(--dim);font-size:1.05rem}
+.masse{display:flex;gap:2.4rem;margin:1.8rem 0}
+.masse b{display:block;font-stretch:125%;font-weight:900;font-size:2.4rem;line-height:1;color:var(--text)}
+.masse span{font-size:.82rem;color:var(--dim)}
+@media (max-width:860px){.pizza .wrap{grid-template-columns:1fr}.pizza-bild{max-width:420px;width:100%;margin-inline:auto}}
+
+/* Laden */
+.galerie{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:12px}
+.galerie figure{margin:0;position:relative;border-radius:16px;overflow:hidden;background:var(--kohle-2)}
+.galerie img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.galerie figure:hover img{transform:scale(1.04)}
+.galerie figcaption{position:absolute;left:12px;bottom:10px;font-size:.78rem;font-weight:600;background:rgba(0,0,0,.55);padding:.25rem .6rem;border-radius:999px;backdrop-filter:blur(6px)}
+.g1{grid-column:span 7;grid-row:span 3}
+.g2{grid-column:span 5;grid-row:span 3}
+.g3{grid-column:span 4;grid-row:span 3}
+.g4{grid-column:span 4;grid-row:span 3}
+.g5{grid-column:span 4;grid-row:span 3}
+@media (max-width:760px){.galerie{grid-template-columns:1fr 1fr;grid-auto-rows:150px}.g1{grid-column:span 2;grid-row:span 2}.g2,.g3,.g4,.g5{grid-column:span 1;grid-row:span 2}.g5{grid-column:span 2}}
+
+/* Stimmen */
+.stimmen{background:var(--kohle-2);border-block:1px solid var(--linie)}
+.stimmen-grid{display:grid;grid-template-columns:.8fr repeat(3,1fr);gap:1.2rem}
+.note{padding:1.6rem;border-radius:var(--r);background:var(--rot);color:#fff;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
+.note b{font-stretch:125%;font-weight:900;font-size:4rem;line-height:.9;display:block}
+.note .stars{color:#fff;font-size:1.1rem}
+.note small{opacity:.85;font-size:.85rem}
+.stimme{margin:0;padding:1.6rem;border-radius:var(--r);background:var(--kohle);border:1px solid var(--linie);display:flex;flex-direction:column;justify-content:space-between;gap:1.2rem}
+.stimme p{margin:0;font-size:1.08rem;line-height:1.45}
+.stimme footer{font-size:.84rem;color:var(--dim)}
+.stimme footer .stars{font-size:.8rem;margin-right:.4rem}
+@media (max-width:960px){.stimmen-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.stimmen-grid{grid-template-columns:1fr}}
+
+/* Besuch */
+.besuch .wrap{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+.karte-box{border-radius:var(--r);overflow:hidden;position:relative;min-height:420px;background:#000}
+.karte-box img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.karte-box .overlay{position:absolute;inset:auto 0 0 0;padding:1.5rem;background:linear-gradient(transparent,rgba(0,0,0,.85));display:flex;flex-wrap:wrap;gap:.6rem;align-items:flex-end;justify-content:space-between}
+.karte-box address{font-style:normal;font-size:1.25rem;font-weight:700;line-height:1.3}
+.karte-box address small{display:block;font-size:.85rem;font-weight:500;color:var(--dim)}
+.info{background:var(--kohle-2);border:1px solid var(--linie);border-radius:var(--r);padding:clamp(1.4rem,3vw,2.2rem);display:flex;flex-direction:column;gap:1.6rem}
+.info h2{font-size:clamp(2rem,4.2vw,3rem);margin:.5rem 0 0}
+.zeiten{width:100%;border-collapse:collapse;font-size:.98rem}
+.zeiten td{padding:.55rem 0;border-bottom:1px solid var(--linie)}
+.zeiten td:last-child{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.zeiten tr.heute td{color:var(--glut);font-weight:700}
+.zeiten tr.heute td:first-child::after{content:"heute";font-size:.7rem;margin-left:.5rem;padding:.1rem .45rem;border-radius:999px;background:rgba(255,122,46,.15);vertical-align:middle}
+.kontakt{display:flex;flex-wrap:wrap;gap:.6rem}
+@media (max-width:860px){.besuch .wrap{grid-template-columns:1fr}.karte-box{min-height:340px}}
+
+/* Fuss */
+footer.fuss{padding:3rem 0 6rem;border-top:1px solid var(--linie);font-size:.86rem;color:var(--dim)}
+footer.fuss .wrap{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:flex-start}
+footer.fuss .logo{font-size:1.3rem;color:var(--text);margin-bottom:.6rem}
+footer.fuss p{margin:.2rem 0}
+
+/* Handy: feste Leiste unten */
+.leiste{display:none}
+@media (max-width:820px){
+  .leiste{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:.6rem 12px calc(.6rem + env(safe-area-inset-bottom));background:rgba(22,24,28,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--linie)}
+  .leiste .btn{padding:.8rem .5rem}
+  .top .btn{display:none}
+}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.da{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none}
+  .band .track{animation:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<div class="muster">Musterseite, kein offizieller Auftritt von Steak Döner</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flamme" viewBox="0 0 60 80"><path fill="currentColor" fill-rule="evenodd" d="M30 0C33 13 43 18 41 31C47 28 49 21 49 21C57 39 60 59 60 80H44L39 63H21L16 80H0C0 58 6 44 14 34C14 42 18 46 20 46C18 30 26 14 30 0ZM25 51H35L30 35Z"/></symbol>
+  <symbol id="tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="tuete" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></symbol>
+  <symbol id="pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Steak Döner, zum Seitenanfang">STE<svg viewBox="0 0 60 80" style="color:var(--rot)" aria-hidden="true"><use href="#flamme"/></svg>K<span class="d">DÖNER</span></a>
+    <nav aria-label="Hauptnavigation">
+      <a href="#brot">Brot</a>
+      <a href="#karte">Speisekarte</a>
+      <a href="#laden">Laden</a>
+      <a href="#besuch">Anfahrt &amp; Zeiten</a>
+    </nav>
+    <a class="btn btn-rot" href="tel:+4917672892802"><svg><use href="#tel"/></svg>Anrufen</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="status" id="status"><i></i><span>Öffnungszeiten werden geladen</span></span>
+      <h1 class="display">Echtes <em>Steak&shy;fleisch.</em><br>Brot aus dem eigenen Ofen.</h1>
+      <p class="lead">Neu an der Bremer Straße in Osnabrück, direkt gegenüber von Penny. Döner mit Steak oder Hähnchen, frisch gebackenes Brot und Yufka, Pizza aus dem Ofen. Alles halal.</p>
+      <div class="ctas">
+        <a class="btn btn-rot" href="#karte">Zur Speisekarte</a>
+        <a class="btn btn-rand" href="https://wolt.com/de/deu/osnabruck/restaurant/steak-doner" target="_blank" rel="noopener"><svg><use href="#tuete"/></svg>Liefern lassen</a>
+      </div>
+      <div class="facts">
+        <div><b>4,7 <span class="stars" aria-hidden="true">★</span></b><span>43 Bewertungen bei Google</span></div>
+        <div><b>8,00 €</b><span>Steak-Döner in der Tasche</span></div>
+        <div><b>100 %</b><span>halal</span></div>
+      </div>
+    </div>
+    <div class="hero-media">
+      <video autoplay muted loop playsinline preload="metadata" poster="img/hero-poster.jpg" aria-label="Kurzer Film: Steakfleisch wird vom Spieß geschnitten und ein Dürüm gerollt">
+        <source src="video/hero.mp4" type="video/mp4">
+      </video>
+      <span class="tag">Frisch vom Spieß</span>
+    </div>
+  </div>
+</section>
+
+<div class="band" aria-hidden="true">
+  <div class="track">
+    <span>Steakfleisch</span><span>Brot frisch gebacken</span><span>Yufka auf Bestellung</span><span>Soßen hausgemacht</span><span>Pizza Ø 32 cm</span><span>100 % halal</span><span>Bremer Straße 56</span>
+    <span>Steakfleisch</span><span>Brot frisch gebacken</span><span>Yufka auf Bestellung</span><span>Soßen hausgemacht</span><span>Pizza Ø 32 cm</span><span>100 % halal</span><span>Bremer Straße 56</span>
+  </div>
+</div>
+
+<section id="ausmacht">
+  <div class="wrap">
+    <div class="kopf reveal">
+      <span class="kicker">Was uns ausmacht</span>
+      <h2 class="display">Kleiner Laden, keine Abkürzungen.</h2>
+      <p>Drei Dinge, an denen man Steak Döner erkennt, und die man auch schmeckt.</p>
+    </div>
+    <div class="punkte">
+      <article class="punkt reveal">
+        <img src="img/spiess.webp" alt="Mit dem Elektromesser wird Steakfleisch vom Drehspieß geschnitten" loading="lazy" width="900" height="1075">
+        <div><span class="nr">01</span><h3>Richtiges Steakfleisch</h3><p>Der Name ist Programm: Fleisch vom Steak-Spieß, dünn geschnitten und saftig. Wer lieber Hähnchen isst, bekommt jeden Döner auch damit.</p></div>
+      </article>
+      <article class="punkt reveal">
+        <img src="img/ofen.webp" alt="Frisch gebackene Brote kommen auf der Schaufel aus dem Ofen" loading="lazy" width="900" height="1083">
+        <div><span class="nr">02</span><h3>Brot aus dem eigenen Ofen</h3><p>Kein Fladenbrot von der Stange. Das Dönerbrot wird hier gebacken, das Yufka für den Dürüm erst gemacht, wenn du bestellst.</p></div>
+      </article>
+      <article class="punkt reveal">
+        <img src="img/theke.webp" alt="Die Theke mit Soßen, gegrilltem Gemüse und roten Zwiebeln" loading="lazy" width="900" height="1250">
+        <div><span class="nr">03</span><h3>Soßen selbst gemacht</h3><p>Die Soßen kommen aus der eigenen Küche, genau wie die Tomatensoße für die Pizza. Und auf dem Tisch stehen Chili und Sumach.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="brot" id="brot">
+  <div class="wrap">
+    <div class="reveal">
+      <span class="kicker">Das Brot</span>
+      <h2 class="display">Warm, fluffig, gerade erst aus dem Ofen.</h2>
+      <p>Beim Döner entscheidet das Brot. Deshalb backen wir es selbst, jeden Tag, direkt im Laden. Außen knusprig mit Sesam, innen weich genug, dass es alles zusammenhält.</p>
+      <p>Für den Dürüm wird das Yufka auf Bestellung frisch zubereitet und kommt noch warm in die Hand.</p>
+      <blockquote class="zitat">
+        <p>„Einer der wenigen, der sein Brot selber macht.“</p>
+        <cite>aus dem Döner-Test von <a href="https://www.instagram.com/reel/DWGk4sXCJp0/" target="_blank" rel="noopener">@umuditestet</a></cite>
+      </blockquote>
+    </div>
+    <div class="bilder reveal">
+      <img class="b1" src="img/brot.webp" alt="Vier frisch gebackene Dönerbrote mit Sesam auf der Ofenschaufel" loading="lazy">
+      <img class="b2" src="img/duerum.webp" alt="Ein Dürüm wird mit Fleisch, Salat und Rotkraut belegt" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="karte">
+  <div class="wrap">
+    <div class="karte-kopf">
+      <div class="kopf reveal">
+        <span class="kicker">Speisekarte</span>
+        <h2 class="display">Was darf's sein?</h2>
+        <p>Döner gibt es mit Hähnchen oder Steak. Einfach umschalten, die Preise passen sich an.</p>
+      </div>
+      <div class="fleisch" role="group" aria-label="Fleischsorte">
+        <button type="button" data-fleisch="steak" aria-pressed="true">Steak</button>
+        <button type="button" data-fleisch="haehnchen" aria-pressed="false">Hähnchen</button>
+      </div>
+    </div>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div id="gruppen"></div>
+    <div class="karte-fuss">
+      <p>Alle Gerichte sind halal. Preise laut Aushang im Laden und Wolt-Karte, Stand September 2026. Bei Lieferung über Wolt können die Preise abweichen. Allergene und Zusatzstoffe stehen auf der Karte im Laden.</p>
+      <a class="btn btn-hell" href="https://wolt.com/de/deu/osnabruck/restaurant/steak-doner" target="_blank" rel="noopener"><svg><use href="#tuete"/></svg>Bei Wolt bestellen</a>
+    </div>
+  </div>
+</section>
+
+<section class="pizza" id="pizza">
+  <div class="wrap">
+    <div class="pizza-bild reveal"><img src="img/pizza.webp" alt="Pizza Margherita in Stücke geschnitten auf einem Teller" loading="lazy"></div>
+    <div class="reveal">
+      <span class="kicker">Aus dem Pizzaofen</span>
+      <h2 class="display">Und dann ist da noch die Pizza.</h2>
+      <p>Der Teig wird von Hand ausgezogen, die Tomatensoße ist hausgemacht, belegt wird großzügig. Die Margherita ist der Beweis: Wer die gut kann, kann den Rest auch.</p>
+      <div class="masse">
+        <div><b>32</b><span>cm Durchmesser</span></div>
+        <div><b>8</b><span>Sorten</span></div>
+        <div><b>9 €</b><span>Margherita</span></div>
+      </div>
+      <a class="btn btn-rand" href="#karte" data-springe="pizzen">Alle Pizzen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<section id="laden">
+  <div class="wrap">
+    <div class="kopf reveal">
+      <span class="kicker">Der Laden</span>
+      <h2 class="display">Reinkommen, hinsetzen, genießen.</h2>
+      <p>Hell, sauber und gemütlich: ein paar Tische und eine Theke am Fenster mit Blick auf die Bremer Straße. Oder du nimmst alles einfach mit.</p>
+    </div>
+    <div class="galerie">
+      <figure class="g1 reveal"><img src="img/laden.webp" alt="Außenansicht: der Laden mit dem Schild Steak Döner an der Bremer Straße" loading="lazy"><figcaption>Bremer Straße 56</figcaption></figure>
+      <figure class="g2 reveal"><img src="img/innen.webp" alt="Innenraum mit Barhockern am Fenster und Pflanzenwand" loading="lazy"><figcaption>Plätze am Fenster</figcaption></figure>
+      <figure class="g3 reveal"><img src="img/tisch.webp" alt="Tisch mit Stühlen vor einer Wand mit Holzlamellen und Pflanzen" loading="lazy"><figcaption>Sitzecke</figcaption></figure>
+      <figure class="g4 reveal"><img src="img/spiesse.webp" alt="Zwei Drehspieße, Hähnchen und Steak, an der Theke" loading="lazy"><figcaption>Hähnchen und Steak</figcaption></figure>
+      <figure class="g5 reveal"><img src="img/pizza-belegen.webp" alt="Eine Pizza wird mit Käse belegt" loading="lazy"><figcaption>Pizza auf Bestellung</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="stimmen" id="stimmen">
+  <div class="wrap">
+    <div class="kopf reveal">
+      <span class="kicker">Was Gäste sagen</span>
+      <h2 class="display">Seit März offen, schon Stammgäste.</h2>
+    </div>
+    <div class="stimmen-grid">
+      <div class="note reveal">
+        <div><b>4,7</b><span class="stars" aria-label="4,7 von 5 Sternen">★★★★★</span></div>
+        <small>aus 43 Bewertungen bei Google, Stand September 2026</small>
+      </div>
+      <blockquote class="stimme reveal">
+        <p>„Das Brot ist frisch gebacken und das Fleisch mega lecker und saftig.“</p>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Google-Rezension</footer>
+      </blockquote>
+      <blockquote class="stimme reveal">
+        <p>„Bin extra 15 Minuten Umweg für den Döner gefahren. Hat sich absolut gelohnt.“</p>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Belal K., Local Guide</footer>
+      </blockquote>
+      <blockquote class="stimme reveal">
+        <p>„Sowohl Pizza als auch der Döner: überragend. Immer super höflich.“</p>
+        <footer><span class="stars" aria-hidden="true">★★★★★</span>Alina F., Google</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="besuch" id="besuch">
+  <div class="wrap">
+    <div class="karte-box reveal">
+      <img src="img/laden.webp" alt="" loading="lazy">
+      <div class="overlay">
+        <address>Bremer Straße 56<br>49084 Osnabrück<small>gegenüber von Penny</small></address>
+        <a class="btn btn-rot" href="https://www.google.com/maps/search/?api=1&query=Steak+D%C3%B6ner+Bremer+Stra%C3%9Fe+56+49084+Osnabr%C3%BCck" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Route planen</a>
+      </div>
+    </div>
+    <div class="info reveal">
+      <div>
+        <span class="kicker">Anfahrt &amp; Zeiten</span>
+        <h2 class="display">Komm vorbei.</h2>
+      </div>
+      <table class="zeiten" id="zeiten">
+        <tbody>
+          <tr data-tag="1"><td>Montag</td><td>13:00 – 22:00</td></tr>
+          <tr data-tag="2"><td>Dienstag</td><td>11:00 – 22:00</td></tr>
+          <tr data-tag="3"><td>Mittwoch</td><td>11:00 – 22:00</td></tr>
+          <tr data-tag="4"><td>Donnerstag</td><td>11:00 – 22:00</td></tr>
+          <tr data-tag="5"><td>Freitag</td><td>11:00 – 22:00</td></tr>
+          <tr data-tag="6"><td>Samstag</td><td>11:00 – 22:00</td></tr>
+          <tr data-tag="0"><td>Sonntag</td><td>13:00 – 22:00</td></tr>
+        </tbody>
+      </table>
+      <div class="kontakt">
+        <a class="btn btn-rot" href="tel:+4917672892802"><svg><use href="#tel"/></svg>0176 72892802</a>
+        <a class="btn btn-rand" href="https://wolt.com/de/deu/osnabruck/restaurant/steak-doner" target="_blank" rel="noopener"><svg><use href="#tuete"/></svg>Wolt</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="fuss">
+  <div class="wrap">
+    <div>
+      <span class="logo">STE<svg viewBox="0 0 60 80" style="color:var(--rot)" aria-hidden="true"><use href="#flamme"/></svg>K<span class="d">DÖNER</span></span>
+      <p>Bremer Straße 56 · 49084 Osnabrück</p>
+      <p>Telefon 0176 72892802</p>
+    </div>
+    <div>
+      <p>Musterseite, kein offizieller Auftritt von Steak Döner.</p>
+      <p>Fotos: Standbilder aus dem Döner-Test von @umuditestet.</p>
+      <p>Impressum und Datenschutz folgen mit dem echten Auftritt.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="leiste">
+  <a class="btn btn-rot" href="tel:+4917672892802"><svg><use href="#tel"/></svg>Anrufen</a>
+  <a class="btn btn-rand" href="https://www.google.com/maps/search/?api=1&query=Steak+D%C3%B6ner+Bremer+Stra%C3%9Fe+56+49084+Osnabr%C3%BCck" target="_blank" rel="noopener"><svg><use href="#pin"/></svg>Route</a>
+</div>
+
+<script>
+/* ---------- Speisekarte ---------- */
+// Preise: Hähnchen / Steak laut Tafel im Laden, restliche Gerichte laut Wolt-Karte (09/2026)
+const DOENER_BESCHR = "mit Soße, Tomaten, Gurken, Zwiebeln, Eisbergsalat, Weißkraut und Rotkraut";
+const KARTE = [
+  {id:"doener", name:"Döner", hinweis:"Jeden Döner gibt es mit Hähnchen- oder Steakfleisch.", items:[
+    {nr:1, n:"Döner Tasche", d:"im frisch gebackenen Brot, " + DOENER_BESCHR, h:7.5, s:8},
+    {nr:8, n:"Döner Dürüm", d:"im frischen Yufka, " + DOENER_BESCHR, h:8, s:8.5},
+    {nr:2, n:"Döner Box mit Salat", d:DOENER_BESCHR, h:7.5, s:8},
+    {nr:3, n:"Döner Box mit Pommes", d:DOENER_BESCHR, h:7.5, s:8},
+    {nr:4, n:"Döner Box mit Reis", d:DOENER_BESCHR, h:7.5, s:8},
+    {nr:5, n:"Dönerteller mit Pommes", d:DOENER_BESCHR, h:9.5, s:10},
+    {nr:6, n:"Dönerteller mit Reis", d:DOENER_BESCHR, h:9.5, s:10},
+    {nr:7, n:"Dönerteller mit Salat", d:DOENER_BESCHR, h:9.5, s:10},
+    {nr:29, n:"Döner Salat", d:"Fleisch mit Soße, Tomate, Gurke, Zwiebeln, Eisbergsalat, Weiß- und Rotkraut, Essig und Öl", p:9},
+    {nr:11, n:"Döner Portion", d:"nur Fleisch, Sorte und Soße nach Wahl", p:9.5}
+  ]},
+  {id:"pizzen", name:"Pizza", hinweis:"Alle Pizzen haben Ø 32 cm, die Tomatensoße ist hausgemacht.", items:[
+    {nr:18, n:"Pizza Margherita", d:"Tomatensoße und Käse", p:9},
+    {nr:19, n:"Pizza Salami", d:"Rindersalami, Tomatensoße und Käse", p:10},
+    {nr:20, n:"Pizza Schinken", d:"Rinderschinken, Tomatensoße und Käse", p:10},
+    {nr:22, n:"Pizza Salami Schinken", d:"Rindersalami, Rinderschinken, Tomatensoße und Käse", p:11},
+    {nr:23, n:"Pizza Tonno", d:"Thunfisch, Zwiebeln und Käse", p:11},
+    {nr:24, n:"Pizza Funghi", d:"Champignons und Käse", p:10},
+    {nr:25, n:"Pizza Spinat", d:"Spinat, Ei und Käse", p:10},
+    {nr:27, n:"Pizza Sucuk", d:"türkische Wurst aus Rind- und Lammfleisch, Paprika und Käse", p:10}
+  ]},
+  {id:"lahmacun", name:"Lahmacun", items:[
+    {nr:12, n:"Lahmacun mit Döner", d:"türkische Pizza mit Dönerfleisch, Salat, Zwiebeln, Krautsalat, Tomaten und Gurken", p:9},
+    {nr:13, n:"Lahmacun mit Salat", d:"türkische Pizza mit Salat, Zwiebeln, Krautsalat, Tomaten und Gurken", p:8},
+    {nr:14, n:"Lahmacun", d:"türkische Pizza, ohne Beilage", p:3.5}
+  ]},
+  {id:"veggie", name:"Falafel & Vegetarisch", items:[
+    {nr:33, n:"Falafel Dürüm", d:"mit Soße, Tomate, Gurke, Zwiebeln, Salat, Kraut und Sesamsoße", p:8},
+    {nr:35, n:"Falafel Tasche", d:"Salat, Zwiebeln, Krautsalat, Tomaten, Gurken und Sesamsoße", p:6},
+    {nr:36, n:"Falafel Teller", d:"Salat, Zwiebeln, Krautsalat, Tomaten, Gurken und Sesamsoße", p:6},
+    {nr:34, n:"Falafel Portion", d:"6 Stück", p:6},
+    {nr:9, n:"Döner Vegetarisch", d:"im Brot, " + DOENER_BESCHR, p:7},
+    {nr:10, n:"Dürüm Vegetarisch", d:"im Yufka, " + DOENER_BESCHR, p:7.5}
+  ]},
+  {id:"mehr", name:"Salate & Beilagen", items:[
+    {nr:30, n:"Gemischter Salat", d:"mit Soße, Tomate, Gurke, Zwiebeln, Eisbergsalat, Weiß- und Rotkraut, Essig und Öl", p:8},
+    {nr:31, n:"Thunfischsalat", d:"mit Soße, Tomate, Gurke, Zwiebeln, Eisbergsalat, Weiß- und Rotkraut, Essig und Öl", p:9},
+    {n:"Schnitzel Wiener Art", d:"mit Pommes frites und gemischtem Salat", p:10},
+    {nr:41, n:"Chicken Nuggets Teller", d:"mit Pommes, Salat, Zwiebeln, Krautsalat, Tomaten und Gurken", p:7},
+    {nr:40, n:"Chicken Nuggets", d:"6 Stück", p:6},
+    {nr:39, n:"Pommes frites", d:"", p:3}
+  ]},
+  {id:"getraenke", name:"Getränke", items:[
+    {n:"Ayran 0,25 l", d:"Ayfit, leicht gesalzen", p:1.5},
+    {n:"Mineralwasser 0,5 l", d:"Dolu Naturell", p:1.5},
+    {n:"Coca-Cola, Zero, Fanta, Sprite, Mezzo Mix 0,33 l", d:"auch Fanta Exotic, Mango Dragonfruit, Holunderblüte", p:2},
+    {n:"Uludağ Gazoz 0,33 l", d:"türkische Limonade", p:2},
+    {n:"Durstlöscher 0,5 l", d:"Multivitamin oder Saurer Pfirsich", p:2},
+    {n:"Red Bull 0,25 l", d:"Original, Zero und Editionen", p:2.5},
+    {n:"Softdrinks 1,0 l", d:"Coca-Cola, Zero, Fanta, Sprite, Mezzo Mix", p:3.5}
+  ]}
+];
+
+const euro = v => v.toFixed(2).replace(".", ",") + " €";
+let fleisch = "steak";
+const tabs = document.getElementById("tabs");
+const gruppen = document.getElementById("gruppen");
+
+function preisHtml(it){
+  if (it.p != null) return euro(it.p);
+  const haupt = fleisch === "steak" ? it.s : it.h;
+  const neben = fleisch === "steak" ? it.h : it.s;
+  return euro(haupt) + `<s>${fleisch === "steak" ? "Hähnchen" : "Steak"} ${euro(neben)}</s>`;
+}
+function baue(){
+  gruppen.innerHTML = KARTE.map(g => `
+    <div class="gruppe" id="g-${g.id}" role="tabpanel" aria-labelledby="t-${g.id}">
+      ${g.hinweis ? `<p class="hinweis">${g.hinweis}</p>` : ""}
+      <div class="liste">${g.items.map(it => `
+        <div class="gericht">
+          <h4>${it.nr ? `<small>${it.nr}</small>` : ""}${it.n}</h4>
+          <span class="preis">${preisHtml(it)}</span>
+          ${it.d ? `<p>${it.d}</p>` : ""}
+        </div>`).join("")}
+      </div>
+    </div>`).join("");
+}
+tabs.innerHTML = KARTE.map((g,i) => `<button type="button" role="tab" id="t-${g.id}" aria-controls="g-${g.id}" aria-selected="${i===0}">${g.name}</button>`).join("");
+let aktiv = KARTE[0].id;
+function zeige(id){
+  aktiv = id;
+  tabs.querySelectorAll("button").forEach(b => b.setAttribute("aria-selected", b.id === "t-" + id));
+  gruppen.querySelectorAll(".gruppe").forEach(g => g.classList.toggle("aktiv", g.id === "g-" + id));
+}
+baue(); zeige(aktiv);
+tabs.addEventListener("click", e => { const b = e.target.closest("button"); if (b) zeige(b.id.slice(2)); });
+document.querySelectorAll(".fleisch button").forEach(b => b.addEventListener("click", () => {
+  fleisch = b.dataset.fleisch;
+  document.querySelectorAll(".fleisch button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  baue(); zeige(aktiv);
+}));
+document.querySelectorAll("[data-springe]").forEach(a => a.addEventListener("click", () => zeige(a.dataset.springe)));
+
+/* ---------- Geöffnet? (Uhrzeit Osnabrück) ---------- */
+const ZEITEN = {0:[13,22],1:[13,22],2:[11,22],3:[11,22],4:[11,22],5:[11,22],6:[11,22]};
+function jetztBerlin(){
+  const t = new Intl.DateTimeFormat("en-GB",{timeZone:"Europe/Berlin",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date());
+  const wd = {Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[t.find(p=>p.type==="weekday").value];
+  const h = +t.find(p=>p.type==="hour").value % 24, m = +t.find(p=>p.type==="minute").value;
+  return {wd, std: h + m/60};
+}
+function status(){
+  const {wd, std} = jetztBerlin();
+  const [auf, zu] = ZEITEN[wd];
+  const el = document.getElementById("status");
+  let txt, offen = false;
+  if (std >= auf && std < zu){ offen = true; txt = `Jetzt geöffnet · bis ${zu} Uhr`; }
+  else if (std < auf){ txt = `Geschlossen · öffnet heute um ${auf} Uhr`; }
+  else { txt = `Geschlossen · öffnet morgen um ${ZEITEN[(wd+1)%7][0]} Uhr`; }
+  el.classList.toggle("offen", offen);
+  el.querySelector("span").textContent = txt;
+  document.querySelectorAll("#zeiten tr").forEach(tr => tr.classList.toggle("heute", +tr.dataset.tag === wd));
+}
+status(); setInterval(status, 60000);
+
+/* ---------- Einblenden beim Scrollen ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add("da"); io.unobserve(e.target); } }), {rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+</script>
+</body>
+</html>
