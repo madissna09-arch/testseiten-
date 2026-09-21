@@ -7,6 +7,7 @@ Muster-Auftritte für Betriebe, zum Anschauen und Herzeigen.
 | Seite | Betrieb | Ort |
 |---|---|---|
 | [bilad-alsham](bilad-alsham/) | Bilad Alsham, arabische Konditorei | Osnabrück |
+| [2-bros-bistro](2-bros-bistro/) | 2 Bros Bistro, Speisekarte | Osnabrück |
 
 ## Hinweise
 
