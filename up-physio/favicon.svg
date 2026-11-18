@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="16" fill="#111814"/>
+  <g transform="translate(5.5 6) scale(.43)">
+    <path fill="#F2F0E9" d="M142 79C130 82 113 82 110 72C107 62 118 52 136 51C158 50 173 64 173 84C173 106 152 120 120 121C104 121 90 118 80 113C92 115 104 116 118 115C142 113 161 101 161 84C161 69 151 59 136 59C124 59 116 65 117 70C118 75 130 77 142 79Z" transform="translate(-78 -2)"/>
+    <path fill="#F2F0E9" d="M183 0C192 12 192 32 168 50C181 38 187 20 183 0Z" transform="translate(-78 -2)"/>
+    <path fill="#F2F0E9" d="M165 51C177 55 182 68 176 87C177 74 175 62 165 51Z" transform="translate(-78 -2)"/>
+    <ellipse fill="#8CBE22" cx="73" cy="37" rx="9" ry="11" transform="rotate(-12 73 37)"/>
+  </g>
+</svg>
