@@ -407,9 +407,116 @@
   .recht .inhalt{ padding:0 20px 20px; color:#b9b9b5; font-size:14px; }
   .recht .inhalt p{ margin:0 0 12px; }
 
+  /* ---------- Markenband mit Animation ---------- */
+  .band{ padding:76px 0 0; overflow:hidden; }
+  .band-innen{
+    display:flex; flex-direction:column; align-items:center; gap:18px;
+    padding:0 var(--gutter) 60px;
+  }
+  .marke-anim{
+    display:flex; align-items:flex-end; gap:clamp(10px,2.4vw,20px);
+    filter:drop-shadow(0 0 0 rgba(224,38,28,0));
+  }
+  .marke-anim .ziffern{ display:flex; }
+  /* jede Ziffer faehrt aus ihrem eigenen Fenster nach oben herein */
+  .marke-anim .fenster{ overflow:hidden; display:block; line-height:0.78; }
+  .marke-anim .fenster i{
+    display:block; font-style:normal;
+    font-family:'Anton',sans-serif;
+    font-size:clamp(66px,16vw,132px);
+    line-height:0.78;
+    letter-spacing:0.01em;
+    transform:translateY(110%);
+  }
+  .marke-anim .fenster:nth-child(2) i{ color:var(--red); }
+  .band.an .fenster i{ animation:herein .78s cubic-bezier(.19,1,.22,1) forwards; }
+  .band.an .fenster:nth-child(1) i{ animation-delay:.05s; }
+  .band.an .fenster:nth-child(2) i{ animation-delay:.15s; }
+  .band.an .fenster:nth-child(3) i{ animation-delay:.25s; }
+  @keyframes herein{ to{ transform:translateY(0); } }
+
+  /* Fernsehturm zeichnet sich selbst */
+  .turm{ height:clamp(84px,20vw,166px); width:auto; overflow:visible; }
+  .turm [class^="t-"]{
+    fill:none;
+    stroke:var(--red);
+    stroke-width:7;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    stroke-dasharray:100;
+    stroke-dashoffset:100;
+  }
+  .turm .t-kugel{ stroke-width:8; }
+  .band.an .turm [class^="t-"]{
+    animation:zeichnen .62s ease-out forwards;
+  }
+  .band.an .turm .t-fuss{ animation-delay:.42s; }
+  .band.an .turm .t-schaft{ animation-delay:.60s; }
+  .band.an .turm .t-kugel{ animation-delay:.86s; }
+  .band.an .turm .t-antenne{ animation-delay:1.12s; }
+  @keyframes zeichnen{ to{ stroke-dashoffset:0; } }
+
+  /* kurzes Neon-Flackern, danach ruhiges Glimmen */
+  .band.an .marke-anim{
+    animation:flackern .5s steps(1,end) 1.5s 1, glimmen 3.6s ease-in-out 2.0s infinite;
+  }
+  @keyframes flackern{
+    0%,100%{ opacity:1; }
+    18%{ opacity:.25; }
+    34%{ opacity:1; }
+    52%{ opacity:.4; }
+    66%{ opacity:1; }
+  }
+  @keyframes glimmen{
+    0%,100%{ filter:drop-shadow(0 0 6px rgba(224,38,28,0.18)); }
+    50%{ filter:drop-shadow(0 0 22px rgba(224,38,28,0.42)); }
+  }
+  .band-claim{
+    margin:0;
+    color:var(--grey);
+    font-size:clamp(14px,2.6vw,18px);
+    text-align:center;
+    opacity:0;
+  }
+  .band.an .band-claim{ animation:auftauchen .7s ease-out 1.3s forwards; }
+  @keyframes auftauchen{ to{ opacity:1; transform:none; } }
+
+  /* Laufband */
+  .laufband{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:16px 0;
+    display:flex;
+    user-select:none;
+  }
+  .spur{
+    display:flex; flex:none;
+    animation:laufen 34s linear infinite;
+  }
+  .spur span{
+    font-family:'Anton',sans-serif;
+    font-size:clamp(20px,4.4vw,34px);
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    white-space:nowrap;
+    padding-right:28px;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(245,245,243,0.3);
+    text-stroke:1px rgba(245,245,243,0.3);
+  }
+  .spur span em{
+    font-style:normal;
+    color:var(--red);
+    -webkit-text-stroke:0;
+  }
+  @keyframes laufen{ to{ transform:translateX(-50%); } }
+
   @media (prefers-reduced-motion: reduce){
     *{ animation:none !important; transition:none !important; }
     html{ scroll-behavior:auto; }
+    .marke-anim .fenster i{ transform:none; }
+    .turm [class^="t-"]{ stroke-dashoffset:0; }
+    .band-claim{ opacity:1; }
   }
 </style>
 </head>
@@ -503,7 +610,7 @@
         </div>
       </div>
       <div class="bildrahmen">
-        <img src="bilder/doener-kaese.webp" width="1000" height="1324" loading="lazy" decoding="async"
+        <img src="bilder/doener-kaese.webp" width="1000" height="1059" loading="lazy" decoding="async"
              alt="Döner mit geschmolzenem Käse, frisch aus der Hand gereicht">
         <span class="fig-cap">Handwerk, kein Fast Food</span>
       </div>
@@ -532,9 +639,37 @@
         <span class="fig-cap">Das halbe Hähnchen</span>
       </div>
       <div class="kachel essen-klein">
-        <img src="bilder/sauce-pinsel.webp" width="1000" height="1290" loading="lazy" decoding="async"
+        <img src="bilder/sauce-pinsel.webp" width="1000" height="1045" loading="lazy" decoding="async"
              alt="Hausgemachte Sauce wird mit dem Pinsel aufgetragen">
         <span class="fig-cap">Die Sauce macht's</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKENBAND -->
+  <section class="band" id="marke">
+    <div class="band-innen">
+      <div class="marke-anim">
+        <span class="ziffern">
+          <span class="fenster"><i>0</i></span>
+          <span class="fenster"><i>3</i></span>
+          <span class="fenster"><i>0</i></span>
+        </span>
+        <svg class="turm" viewBox="0 0 120 400" role="img"
+             aria-label="Das 030-Zeichen mit dem Berliner Fernsehturm">
+          <path class="t-fuss"    pathLength="100" d="M30 392 L44 352 L76 352 L90 392" />
+          <path class="t-schaft"  pathLength="100" d="M46 352 L54 192 M74 352 L66 192" />
+          <circle class="t-kugel" pathLength="100" cx="60" cy="160" r="30" />
+          <path class="t-antenne" pathLength="100" d="M60 130 L60 14" />
+        </svg>
+      </div>
+      <p class="band-claim">Berliner Spirit. Osnabrücker Boden. Seit dem 2. November am Neumarkt.</p>
+    </div>
+
+    <div class="laufband" aria-hidden="true">
+      <div class="spur">
+        <span>Null Bock auf Standard <em>&middot;</em> 100% Helal <em>&middot;</em> Neumarkt 5 <em>&middot;</em> Täglich ab 11 Uhr <em>&middot;</em> Berliner Saucen <em>&middot;</em> Halbes Hähnchen <em>&middot;</em>&nbsp;</span>
+        <span>Null Bock auf Standard <em>&middot;</em> 100% Helal <em>&middot;</em> Neumarkt 5 <em>&middot;</em> Täglich ab 11 Uhr <em>&middot;</em> Berliner Saucen <em>&middot;</em> Halbes Hähnchen <em>&middot;</em>&nbsp;</span>
       </div>
     </div>
   </section>
@@ -556,7 +691,7 @@
         <span class="fig-cap">2. November</span>
       </div>
       <div class="kachel">
-        <img src="bilder/laden-innen.webp" width="360" height="640" loading="lazy" decoding="async"
+        <img src="bilder/laden-innen.webp" width="360" height="493" loading="lazy" decoding="async"
              alt="Blick in den Innenraum mit Wandbildern">
         <span class="fig-cap">Drinnen</span>
       </div>
@@ -579,22 +714,13 @@
     </div>
     <div class="ig-grid">
       <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
-        <img src="bilder/doener-hand.webp" width="480" height="640" loading="lazy" decoding="async" alt="Döner im Fladenbrot">
-      </a>
-      <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
-        <img src="bilder/box-wandbild.webp" width="480" height="640" loading="lazy" decoding="async" alt="Box mit Pommes und Fleisch vor dem Wandbild">
+        <img src="bilder/doener-hand.webp" width="480" height="429" loading="lazy" decoding="async" alt="Döner im Fladenbrot">
       </a>
       <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
         <img src="bilder/pommes-haehnchen.webp" width="481" height="640" loading="lazy" decoding="async" alt="Pommes mit Hähnchenstücken in der Box">
       </a>
       <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
-        <img src="bilder/teller-haehnchen.webp" width="360" height="640" loading="lazy" decoding="async" alt="Halbes Hähnchen mit Pommes auf dem Teller">
-      </a>
-      <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
-        <img src="bilder/aktion-ps5.webp" width="481" height="640" loading="lazy" decoding="async" alt="Gewinnspiel-Aktion im Laden">
-      </a>
-      <a class="ig-kachel" href="https://www.instagram.com/030.os/" target="_blank" rel="noopener">
-        <img src="bilder/haehnchen-grill.webp" width="480" height="640" loading="lazy" decoding="async" alt="Hähnchen auf dem Grill">
+        <img src="bilder/teller-haehnchen.webp" width="360" height="372" loading="lazy" decoding="async" alt="Halbes Hähnchen mit Pommes auf dem Tablett">
       </a>
     </div>
     <div style="text-align:center; margin-top:36px;">
@@ -843,6 +969,26 @@
 
   zeichnen();
   setInterval(zeichnen, 30000);
+})();
+
+(function(){
+  // Markenband erst animieren, wenn es im Bild ist
+  var band = document.getElementById('marke');
+  if (!band) return;
+  var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (ruhig || !('IntersectionObserver' in window)){
+    band.classList.add('an');
+    return;
+  }
+  var beobachter = new IntersectionObserver(function(eintraege){
+    eintraege.forEach(function(e){
+      if (e.isIntersecting){
+        band.classList.add('an');
+        beobachter.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  beobachter.observe(band);
 })();
 </script>
 </body>
