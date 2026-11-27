@@ -4,10 +4,6 @@
   const lerp = (a, b, t) => a + (b - a) * t;
   const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 
-  /* Die Seite laeuft auch im Handy-Rahmen (iframe). Dort blenden wir den
-     Rahmen-Knopf aus, sonst koennte man ihn endlos verschachteln. */
-  const inFrame = window.self !== window.top;
-
   /* ── Überschriften in Wörter zerlegen ── */
   document.querySelectorAll('[data-split]').forEach((el) => {
     el.innerHTML = el.textContent
@@ -172,9 +168,16 @@
   const hhmm = (min) => `${Math.floor(min / 60)}:${String(min % 60).padStart(2, '0')}`;
 
   function renderStatus() {
-    const out = document.getElementById('statusNow');
     const byDay = readHours();
-    if (!out || !byDay) return;
+    if (!byDay) return;
+    const targets = ['statusNow', 'statusCard'].map((id) => document.getElementById(id)).filter(Boolean);
+    const out = {
+      set textContent(v) { targets.forEach((t) => { t.textContent = v; }); },
+      classList: {
+        add: (c) => targets.forEach((t) => t.classList.add(c)),
+        remove: (c) => targets.forEach((t) => t.classList.remove(c)),
+      },
+    };
 
     const now = new Date();
     const min = now.getHours() * 60 + now.getMinutes();
@@ -208,74 +211,6 @@
 
   const todayRow = document.querySelector(`#hours tr[data-day="${new Date().getDay()}"]`);
   if (todayRow) todayRow.classList.add('is-today');
-
-  /* ── Handy-Vorschau ──
-     Kein Herunterskalieren der ganzen Seite — das bricht alles, was fixiert
-     ist. Stattdessen laedt ein iframe dieselbe Seite in Handy-Breite, also
-     genau das Layout, das ein echtes Geraet bekommt.                       */
-  const devbtn = document.getElementById('devbtn');
-  const device = document.getElementById('device');
-
-  if (inFrame) {
-    if (devbtn) devbtn.remove();
-  } else if (devbtn && device) {
-    const phone = document.getElementById('devicePhone');
-    const iframe = document.getElementById('deviceFrame');
-    const sizeOut = document.getElementById('deviceSize');
-    const setBtns = [...device.querySelectorAll('.device__set button')];
-    let loaded = false;
-
-    function fit(w, h) {
-      /* In die verfuegbare Hoehe einpassen, aber nie ueber 1:1 vergroessern. */
-      const stage = device.querySelector('.device__stage');
-      const availH = stage.clientHeight - 40;
-      const availW = stage.clientWidth - 40;
-      const k = Math.min(1, availH / h, availW / w);
-      phone.style.width = `${Math.round(w * k)}px`;
-      phone.style.height = `${Math.round(h * k)}px`;
-      /* Der iframe behaelt die echte Pixelbreite und wird nur skaliert,
-         damit die CSS-Breakpoints wirklich bei w greifen. */
-      iframe.style.width = `${w}px`;
-      iframe.style.height = `${h}px`;
-      iframe.style.transformOrigin = 'top left';
-      iframe.style.transform = `scale(${k})`;
-      sizeOut.textContent = `${w} × ${h}`;
-    }
-
-    let current = [390, 844];
-
-    function open() {
-      device.hidden = false;
-      devbtn.setAttribute('aria-pressed', 'true');
-      document.body.style.overflow = 'hidden';
-      if (!loaded) {
-        iframe.src = location.pathname + '?frame=1';
-        loaded = true;
-      }
-      fit(...current);
-    }
-    function close() {
-      device.hidden = true;
-      devbtn.setAttribute('aria-pressed', 'false');
-      document.body.style.overflow = '';
-    }
-
-    devbtn.addEventListener('click', () => (device.hidden ? open() : close()));
-    document.getElementById('deviceClose').addEventListener('click', close);
-    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !device.hidden) close(); });
-    addEventListener('resize', () => { if (!device.hidden) fit(...current); });
-
-    setBtns.forEach((b) => {
-      b.addEventListener('click', () => {
-        current = b.dataset.dev.split(',').map(Number);
-        setBtns.forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
-        fit(...current);
-      });
-    });
-    setBtns[0].setAttribute('aria-pressed', 'true');
-  }
-
-
 
   /* ── Die Münze ──
      Am Rechner kippt sie zum Zeiger, am Handy zum Neigungssensor. Der

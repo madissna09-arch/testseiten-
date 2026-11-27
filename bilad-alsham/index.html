@@ -16,16 +16,14 @@
 <meta property="og:locale" content="de_DE" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="theme-color" content="#120d08" />
-<!-- Muster, kein Auftritt des Betriebs: soll nicht in der Suche landen.
-     Vor einem echten Livegang diese Zeile entfernen. -->
+<!-- Muster, kein Auftritt des Betriebs. Vor echtem Livegang entfernen. -->
 <meta name="robots" content="noindex, nofollow" />
-
 <link rel="manifest" href="manifest.webmanifest" />
 <link rel="icon" href="assets/icon-192.png" sizes="192x192" />
 <link rel="apple-touch-icon" href="assets/icon-192.png" />
 <meta name="apple-mobile-web-app-title" content="Bilad Alsham" />
 
-<link rel="stylesheet" href="style.css?v=766aab1c" />
+<link rel="stylesheet" href="style.css?v=651ced76" />
 </head>
 <body>
 
@@ -47,11 +45,6 @@
     <a href="#finden">Finden</a>
   </nav>
   <div class="nav__right">
-    <button class="devbtn" id="devbtn" type="button" aria-pressed="false"
-            title="Vorschau im Handy-Format (nur zum Testen)">
-      <span class="devbtn__ico" aria-hidden="true"></span>
-      <span class="devbtn__txt">Handy</span>
-    </button>
     <a class="nav__tel" href="tel:+4954186027127">
       <span aria-hidden="true" class="nav__tel-ico"></span><span class="nav__tel-txt">0541 86027127</span>
     </a>
@@ -81,7 +74,7 @@
     <h1 class="hero__h1">
       <span class="hero__name" data-reveal>Bilad Alsham</span>
       <span class="hero__ar" data-reveal>مطبخ وحلويات بلاد الشام</span>
-      <span class="hero__tag shimmer" data-split>Ein Stück Levante in Osnabrück</span>
+      <span class="hero__tag shimmer" data-reveal>Ein Stück Levante in Osnabrück</span>
     </h1>
     <p class="hero__sub" data-reveal>
       Arabische Spezialitätenküche und orientalische Konditorei
@@ -121,7 +114,7 @@
 <section class="levante" id="levante">
   <div class="levante__inner">
     <p class="levante__salam" data-reveal>أهلاً وسهلاً</p>
-    <h2 class="levante__title" data-split>Ein Stück Levante in Osnabrück</h2>
+    <h2 class="levante__title" data-split>Süßes aus Damaskus und Aleppo.</h2>
     <div class="levante__body">
       <p data-reveal>
         Bilad Alsham — „die Länder der Levante" — steht für die große
@@ -283,18 +276,30 @@
     <p class="kicker" data-reveal>Öffnungszeiten</p>
     <h2 class="sec__title" data-split>Sieben Tage die Woche.</h2>
   </div>
-  <table class="hours" id="hours">
-    <caption class="visually-hidden">Öffnungszeiten von Bilad Alsham</caption>
-    <tbody>
-      <tr data-day="1"><th scope="row">Montag</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="2"><th scope="row">Dienstag</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="3"><th scope="row">Mittwoch</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="4"><th scope="row">Donnerstag</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="5"><th scope="row">Freitag</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="6"><th scope="row">Samstag</th><td>9:30 – 21:00</td></tr>
-      <tr data-day="0"><th scope="row">Sonntag</th><td>10:00 – 18:00</td></tr>
-    </tbody>
-  </table>
+  <div class="zeiten">
+    <table class="hours" id="hours" data-reveal>
+      <caption class="visually-hidden">Öffnungszeiten von Bilad Alsham</caption>
+      <tbody>
+        <tr data-day="1"><th scope="row">Montag</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="2"><th scope="row">Dienstag</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="3"><th scope="row">Mittwoch</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="4"><th scope="row">Donnerstag</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="5"><th scope="row">Freitag</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="6"><th scope="row">Samstag</th><td>9:30 – 21:00</td></tr>
+        <tr data-day="0"><th scope="row">Sonntag</th><td>10:00 – 18:00</td></tr>
+      </tbody>
+    </table>
+    <aside class="zeiten__card" data-reveal>
+      <span class="zeiten__label">Gerade</span>
+      <strong class="zeiten__now" id="statusCard">Öffnungszeiten nebenan</strong>
+      <p>
+        Kunafa kommt blechweise warm aus dem Ofen. Wer sicher ein frisches
+        Stück will, ruft kurz vorher an, dann steht sie bereit.
+      </p>
+      <a class="btn btn--gold" href="tel:+4954186027127">0541 86027127 anrufen</a>
+      <p class="zeiten__small">An Feiertagen und im Ramadan können die Zeiten abweichen.</p>
+    </aside>
+  </div>
 </section>
 
 <!-- ── FINDEN ───────────────────────────────────────────── -->
@@ -397,24 +402,6 @@
   </a>
 </nav>
 
-<!-- Nur zum Testen: zeigt die Seite in einem Handy-Rahmen -->
-<div class="device" id="device" hidden>
-  <div class="device__bar">
-    <span class="device__size" id="deviceSize">390 × 844</span>
-    <div class="device__set">
-      <button type="button" data-dev="390,844">iPhone</button>
-      <button type="button" data-dev="360,800">Android</button>
-      <button type="button" data-dev="768,1024">Tablet</button>
-    </div>
-    <button class="device__close" id="deviceClose" type="button">Schließen</button>
-  </div>
-  <div class="device__stage">
-    <div class="device__phone" id="devicePhone">
-      <iframe id="deviceFrame" title="Vorschau im Handy-Format" src="about:blank"></iframe>
-    </div>
-  </div>
-</div>
-
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -456,6 +443,6 @@
 }
 </script>
 
-<script src="app.js?v=40d8c435"></script>
+<script src="app.js?v=420ccbd1"></script>
 </body>
 </html>
